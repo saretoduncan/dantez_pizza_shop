@@ -1,0 +1,42 @@
+@import "../../styles/variables";
+._link {
+  text-decoration: none !important;
+  font-size: 18px;
+}
+._link:hover {
+  color: $_primary_color;
+  cursor: pointer;
+}
+._link:hover::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: $_primary_color;
+}
+._navbar {
+  height: 10vh;
+  background-color: $_primary_background_color;
+}
+._cartbtn {
+  border: none;
+  background-color: transparent;
+  color: $_primary_color;
+}
+._star_nav {
+  width: 20px;
+ 
+}
+.rotate{
+animation: rotation 2s;
+animation-timing-function: linear;
+animation-iteration-count: infinite;
+}
+@keyframes rotation {
+    from{
+        transform: rotate(0deg);
+    }
+     to {
+        transform: rotate(359deg);
+     }
+}
