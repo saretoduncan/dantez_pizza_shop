@@ -17,6 +17,7 @@
 ._navbar {
   height: 10vh;
   background-color: $_primary_background_color;
+  border-bottom: solid 2px $_primary_color;
 }
 ._cartbtn {
   border: none;
@@ -25,18 +26,37 @@
 }
 ._star_nav {
   width: 20px;
- 
 }
-.rotate{
-animation: rotation 2s;
-animation-timing-function: linear;
-animation-iteration-count: infinite;
+.rotate {
+  animation: rotation 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 @keyframes rotation {
-    from{
-        transform: rotate(0deg);
-    }
-     to {
-        transform: rotate(359deg);
-     }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+.dropdown-content {
+
+  min-width: 100px;
+  background-color: $_primary_background_color;
+  overflow: auto;
+  box-shadow: 0 8px 16px 0 $_primary_color;
+  z-index: 11;
+  right: 0;
+  border-radius: 5px;
+}
+.dropdown_item {
+  color: $_primary_color;
+  text-decoration: none;
+  padding: 10px 5px 10px;
+}
+.dropdown_item:hover {
+  cursor: pointer;
+  text-shadow: 2px 2px 4px $_primary_color;
+  color: $_primary_color;
 }
