@@ -8,12 +8,10 @@ export const NavbarComponent: React.FC<{}> = () => {
   const refAccount: any = useRef();
   const displayAccount = () => {
     setIsDisplay((current: boolean) => !current);
-  
   };
-  const closeDropdownAcc=()=>{
-    if(isDisplay) setIsDisplay(false)
-    
-  }
+  const closeDropdownAcc = () => {
+    if (isDisplay) setIsDisplay(false);
+  };
   const handleClickOutside = (event: Event) => {
     if (refAccount.current && !refAccount.current.contains(event.target)) {
       closeDropdownAcc();
@@ -82,12 +80,11 @@ export const NavbarComponent: React.FC<{}> = () => {
               <span> (0)</span>
             </button>
           </div>
-          <div className='position-relative d-inline-block'>
+          <div className='position-relative d-inline-block' ref={refAccount}>
             <button className='_cartbtn ' onClick={displayAccount}>
               <i className='fa fa-user fs-4' aria-hidden='true'></i>
             </button>
             <div
-              ref={refAccount}
               id='myDropdown'
               className={`position-absolute dropdown-content ${
                 isDisplay ? "d-flex" : "d-none"
