@@ -15,7 +15,7 @@
   }
 }
 ._intro {
-    background: $_primary_background_color;
+  background: $_primary_background_color;
   color: $_primary_color;
   strong {
     font-size: 25px;
@@ -25,4 +25,8 @@
     font-weight: 900;
     text-align: center;
   }
+}
+._scroll_btn_div {
+  bottom: 75px;
+
 }
