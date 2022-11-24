@@ -1,4 +1,5 @@
 @import "../../styles/variables";
+@import "../../styles/breakpoint";
 ._link {
   text-decoration: none !important;
   font-size: 18px;
@@ -18,6 +19,28 @@
   height: 10vh;
   background-color: $_primary_background_color;
   border-bottom: solid 2px $_primary_color;
+}
+._menu_section {
+  @include media("<=tablet") {
+    
+    position: fixed;
+    top: 0;
+    left:0;
+    
+    width:100px;
+    height: 100vh;
+    background-color: white;
+    z-index: 12;
+
+    ul {
+margin: auto;
+      ._link {
+        padding:10px 0;
+        font-size: 20px;
+        font-weight: bold;
+      }
+    }
+  }
 }
 ._cartbtn {
   border: none;
@@ -41,7 +64,6 @@
   }
 }
 .dropdown-content {
-
   min-width: 100px;
   background-color: $_primary_background_color;
   overflow: auto;
@@ -59,4 +81,15 @@
   cursor: pointer;
   text-shadow: 2px 2px 4px $_primary_color;
   color: $_primary_color;
+}
+._hamburger {
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  svg {
+    width: 30px;
+  }
+  @include media(">=tablet") {
+    display: none;
+  }
 }

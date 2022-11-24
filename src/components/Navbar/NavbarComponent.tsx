@@ -4,7 +4,8 @@ import { useState, useRef } from "react";
 import { Link } from "react-scroll";
 import "./navbar.scss";
 export const NavbarComponent: React.FC<{}> = () => {
-  const [isDisplay, setIsDisplay] = useState<boolean>(true);
+  const [isDisplay, setIsDisplay] = useState<boolean>(false);
+  const [menuDisplay, setMenuDisplay] = useState<boolean>(false);
   const refAccount: any = useRef();
   const displayAccount = () => {
     setIsDisplay((current: boolean) => !current);
@@ -17,6 +18,9 @@ export const NavbarComponent: React.FC<{}> = () => {
       closeDropdownAcc();
     }
   };
+  const handleHamburgerMenu = () => {
+    setMenuDisplay((current: boolean) => !current);
+  };
   useEffect(() => {
     document.addEventListener("click", handleClickOutside, true);
     return () =>
@@ -24,23 +28,41 @@ export const NavbarComponent: React.FC<{}> = () => {
   }, [refAccount]);
   return (
     <>
-      <nav className=' row _navbar '>
-        <section className='col-4 d-flex align-self-center'>
-          <Link smooth to='/' className='px-4 _primary_text_color _link'>
-            Home
-          </Link>
-
-          <Link smooth to='/' className='px-4 _primary_text_color _link'>
-            About us
-          </Link>
-
-          <Link smooth to='/' className='px-4 _primary_text_color _link'>
-            Menu
-          </Link>
-
-          <Link smooth to='/' className='px-4 _primary_text_color _link'>
-            Contact us
-          </Link>
+      <nav className='container-fluid row _navbar position-relative'>
+        <div className='_hamburger'>
+          <button className='_cartbtn' onClick={handleHamburgerMenu}>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              viewBox='0 0 20 20'
+              fill='#F43B00'
+            >
+              <path
+                fillRule='evenodd'
+                d='M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z'
+                clipRule='evenodd'
+              />
+            </svg>
+          </button>
+        </div>
+        <section
+          className={`col-6 col-md-4 d-md-flex align-self-center ${
+            menuDisplay ? "d-flex" : "d-none"
+          }  _menu_section`}
+        >
+          <ul className='d-flex flex-column flex-md-row jasti'>
+            <Link smooth to='/' className=' _primary_text_color _link'>
+              Home
+            </Link>
+            <Link smooth to='/' className=' _primary_text_color _link'>
+              About us
+            </Link>
+            <Link smooth to='/' className='_primary_text_color _link'>
+              Menu
+            </Link>
+            <Link smooth to='/' className=' _primary_text_color _link'>
+              Contact us
+            </Link>{" "}
+          </ul>
         </section>
         <section className='col-4 d-flex align-self-center align-items-center  justify-content-center'>
           <span className='_star_nav'>
@@ -69,7 +91,7 @@ export const NavbarComponent: React.FC<{}> = () => {
             </svg>{" "}
           </span>
         </section>
-        <section className='col-4 d-flex align-self-center justify-content-end pe-5'>
+        <section className='col-md-4 d-flex align-self-center justify-content-end pe-5'>
           <div className='pe-3'>
             <button className='_cartbtn '>
               {" "}
