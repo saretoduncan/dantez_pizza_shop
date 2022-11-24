@@ -1,0 +1,28 @@
+@import "../../styles/_variables";
+._landing_body {
+  height: 90vh;
+  border-bottom: 1px solid $_primary_color;
+}
+._pizza_human_div {
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-left: 2px solid $_primary_color;
+  ._pizza_human {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%;
+  }
+}
+._intro {
+    background: $_primary_background_color;
+  color: $_primary_color;
+  strong {
+    font-size: 25px;
+  }
+  p {
+    font-size: 50px;
+    font-weight: 900;
+    text-align: center;
+  }
+}

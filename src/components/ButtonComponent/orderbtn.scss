@@ -1,0 +1,13 @@
+@import "../../styles/_variables";
+
+._orderbtn{
+  background-color:$_primary_color;
+  color: white;
+  
+  border-radius: 3px;
+  padding: 5px 20px;
+  border-color: transparent;
+  font-size: 20px;
+  font-weight: 900;
+  
+}
