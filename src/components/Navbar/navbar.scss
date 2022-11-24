@@ -21,21 +21,32 @@
   border-bottom: solid 2px $_primary_color;
 }
 ._menu_section {
-  @include media("<=tablet") {
-    
+  ._link {
+    padding: 0 10px;
+    margin: auto;
+  }
+  @include media("<laptop") {
+    ._link {
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+  @include media("<tablet") {
     position: fixed;
     top: 0;
-    left:0;
-    
-    width:100px;
+    left: 0;
+    border: 2px solid $_primary_color;
+    border-left: none;
+    width: 100px;
     height: 100vh;
     background-color: white;
     z-index: 12;
 
-    ul {
-margin: auto;
+    div {
+      margin: auto;
+      flex-direction: column;
       ._link {
-        padding:10px 0;
+        padding: 10px 0;
         font-size: 20px;
         font-weight: bold;
       }
@@ -92,4 +103,16 @@ margin: auto;
   @include media(">=tablet") {
     display: none;
   }
+}
+._closebtn_div {
+  display: none;
+  top: 30px;
+  left: 20px;
+  z-index: 22;
+  @include media("<tablet") {
+    display: flex;
+  }
+}
+._closebtn_svg {
+  width: 35px;
 }

@@ -19,7 +19,10 @@ export const NavbarComponent: React.FC<{}> = () => {
     }
   };
   const handleHamburgerMenu = () => {
-    setMenuDisplay((current: boolean) => !current);
+    setMenuDisplay(() => true);
+  };
+  const closeHamburgerMenu = () => {
+    setMenuDisplay(() => false);
   };
   useEffect(() => {
     document.addEventListener("click", handleClickOutside, true);
@@ -27,8 +30,8 @@ export const NavbarComponent: React.FC<{}> = () => {
       document.removeEventListener("click", handleClickOutside, true);
   }, [refAccount]);
   return (
-    <>
-      <nav className='container-fluid row _navbar position-relative'>
+    < >
+      <nav className=' container-fluid row _navbar position-relative'>
         <div className='_hamburger'>
           <button className='_cartbtn' onClick={handleHamburgerMenu}>
             <svg
@@ -45,51 +48,69 @@ export const NavbarComponent: React.FC<{}> = () => {
           </button>
         </div>
         <section
-          className={`col-6 col-md-4 d-md-flex align-self-center ${
+          className={`col-6 col-md-4 d-md-flex   ${
             menuDisplay ? "d-flex" : "d-none"
           }  _menu_section`}
         >
-          <ul className='d-flex flex-column flex-md-row jasti'>
-            <Link smooth to='/' className=' _primary_text_color _link'>
+          <div className={`position-absolute _closebtn_div`}>
+            <button onClick={closeHamburgerMenu} className='_cartbtn'>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                viewBox='0 0 24 24'
+                fill='currentColor'
+                className='_closebtn_svg'
+              >
+                <path
+                  fillRule='evenodd'
+                  d='M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z'
+                  clipRule='evenodd'
+                />
+              </svg>
+            </button>
+          </div>{" "}
+          <div className='d-flex align-self-center flex-md-row flex-column'>
+            <Link smooth to='/' className=' _primary_text_color  _link'>
               Home
             </Link>
             <Link smooth to='/' className=' _primary_text_color _link'>
-              About us
+              {"About"}
             </Link>
             <Link smooth to='/' className='_primary_text_color _link'>
               Menu
             </Link>
             <Link smooth to='/' className=' _primary_text_color _link'>
-              Contact us
+              Contact
             </Link>{" "}
-          </ul>
+          </div>
         </section>
-        <section className='col-4 d-flex align-self-center align-items-center  justify-content-center'>
-          <span className='_star_nav'>
-            <svg
-              className='rotate'
-              xmlns='http://www.w3.org/2000/svg'
-              viewBox='0 0 109.98 105.58'
-            >
-              <path
-                fill='#F43B00'
-                d='M110,52.79l-27.22,9L99.62,85.27,72.15,76.45l0,29.13L55,82,37.8,105.58l0-29.13L10.36,85.27,27.22,61.82,0,52.79l27.22-9L10.36,20.31l27.47,8.82L37.8,0,55,23.54,72.17,0l0,29.13,27.47-8.82L82.76,43.75Z'
-              ></path>
-            </svg>{" "}
-          </span>
-          <h2 className='_primary_text_color px-2'>Dante</h2>
-          <span className='_star_nav'>
-            <svg
-              className='rotate'
-              xmlns='http://www.w3.org/2000/svg'
-              viewBox='0 0 109.98 105.58'
-            >
-              <path
-                fill='#F43B00'
-                d='M110,52.79l-27.22,9L99.62,85.27,72.15,76.45l0,29.13L55,82,37.8,105.58l0-29.13L10.36,85.27,27.22,61.82,0,52.79l27.22-9L10.36,20.31l27.47,8.82L37.8,0,55,23.54,72.17,0l0,29.13,27.47-8.82L82.76,43.75Z'
-              ></path>
-            </svg>{" "}
-          </span>
+        <section className='col-md-4 d-none d-md-flex justify-content-center '>
+          <div className='d-md-flex align-self-center align-items-center   justify-content-center'>
+            <span className='_star_nav'>
+              <svg
+                className='rotate'
+                xmlns='http://www.w3.org/2000/svg'
+                viewBox='0 0 109.98 105.58'
+              >
+                <path
+                  fill='#F43B00'
+                  d='M110,52.79l-27.22,9L99.62,85.27,72.15,76.45l0,29.13L55,82,37.8,105.58l0-29.13L10.36,85.27,27.22,61.82,0,52.79l27.22-9L10.36,20.31l27.47,8.82L37.8,0,55,23.54,72.17,0l0,29.13,27.47-8.82L82.76,43.75Z'
+                ></path>
+              </svg>{" "}
+            </span>
+            <strong className='_primary_text_color px-2 fs-3'>Dante</strong>
+            <span className='_star_nav'>
+              <svg
+                className='rotate'
+                xmlns='http://www.w3.org/2000/svg'
+                viewBox='0 0 109.98 105.58'
+              >
+                <path
+                  fill='#F43B00'
+                  d='M110,52.79l-27.22,9L99.62,85.27,72.15,76.45l0,29.13L55,82,37.8,105.58l0-29.13L10.36,85.27,27.22,61.82,0,52.79l27.22-9L10.36,20.31l27.47,8.82L37.8,0,55,23.54,72.17,0l0,29.13,27.47-8.82L82.76,43.75Z'
+                ></path>
+              </svg>{" "}
+            </span>
+          </div>
         </section>
         <section className='col-md-4 d-flex align-self-center justify-content-end pe-5'>
           <div className='pe-3'>
