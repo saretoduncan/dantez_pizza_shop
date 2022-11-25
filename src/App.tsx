@@ -1,11 +1,15 @@
 import React from "react";
+import { Navbar } from "./components/Tailwindcss/Navbar";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 
 function App() {
   return (
-    <div className='container-fluid'>
-     
-    </div>
+    <>
+      <Router>
+        <Navbar />
+      </Router>
+    </>
   );
 }
 
