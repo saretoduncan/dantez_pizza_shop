@@ -9,7 +9,7 @@ export const Navbar: React.FC<{}> = () => {
   const handleMenuOpening = () => setMenuOpen(() => true);
   const handleMenuClosing = () => setMenuOpen(() => false);
   return (
-    <div className=' w-[100%] h-[10vh]  mx-auto border-b-2 grid grid-cols-3 border-orange relative lg:px-4'>
+    <div className=' w-[100%] h-[10vh] mx-auto border-b-2 grid grid-cols-3 border-orange relative lg:px-4'>
       {isMenuOpen && (
         <div className='absolute z-[12]  top-5 left-5 lg:hidden'>
           <button onClick={handleMenuClosing}>

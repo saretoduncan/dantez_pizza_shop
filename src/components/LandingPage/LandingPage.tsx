@@ -1,7 +1,5 @@
 import React from "react";
 import "./landingPage.scss";
-import { Order_Btn } from "../ButtonComponent/Order_Btn";
-import { ScrollButton } from "../ButtonComponent/ScrollButton";
 export const LandingPage: React.FC<{}> = () => {
   return (
     <div className=' row position-relative _landing_body'>
@@ -9,7 +7,7 @@ export const LandingPage: React.FC<{}> = () => {
         <strong> We Deliver</strong>
         <p>THE BEST PIZZA TO SHARE WITH YOU FRIENDS</p>
         <div>
-          <Order_Btn buttonContent={"Order Now"} />
+       
         </div>
       </div>
       <div className='col-md-6 d-md-flex d-none _pizza_human_div'>
@@ -20,7 +18,7 @@ export const LandingPage: React.FC<{}> = () => {
         />
       </div>
       <div className="position-absolute _scroll_btn_div">
-       <ScrollButton />
+  
       </div>
     </div>
   );
