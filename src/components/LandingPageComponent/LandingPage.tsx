@@ -1,6 +1,5 @@
 import React from "react";
-import { OrderBtn } from '../ButtonComponents/OrderBtn';
-
+import { OrderBtn } from "../ButtonComponents/OrderBtn";
 
 export const LandingPage: React.FC<{}> = () => {
   return (
@@ -15,7 +14,13 @@ export const LandingPage: React.FC<{}> = () => {
         </p>
         <OrderBtn buttonContent={"ORDER NOW"} />
       </section>
-      <section className='w-[100%] lg:hidden'></section>
+      <section className='w-[100%] hidden border-l-2 border-orange md:flex items-center overflow-hidden   justify-center'>
+        <img
+          className=' shrink-0 min-h-[100%] min-w-min'
+          src='https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay0yMTgtZXllLTA2NjA0MDIuanBn.jpg?s=H9Vy7lFqxhQykDtyPke99xrjUMvojK1C8D2hGbgADq4'
+          alt=''
+        />
+      </section>
     </div>
   );
 };
