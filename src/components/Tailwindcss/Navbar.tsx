@@ -2,39 +2,56 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 export const Navbar: React.FC<{}> = () => {
   const [isProfileHovering, setProfileHovering] = useState<boolean>(false);
+  const [isMenuOpen, setMenuOpen] = useState<boolean>(false);
+  const orangeColor = "#f43b00";
   const handleProfileMouseOver = () => setProfileHovering(() => true);
   const handleProfileMouseOut = () => setProfileHovering(() => false);
+  const handleMenuOpening = () => setMenuOpen(() => true);
+  const handleMenuClosing = () => setMenuOpen(() => false);
   return (
-    <div className=' w-[100%] h-[10vh] mx-auto border-b-2 grid grid-cols-3 border-orange relative px-4'>
-
-      <div className='absolute z-[12] hidden top-5 left-5 lg:hidden'>
-        <button>
+    <div className=' w-[100%] h-[10vh]  mx-auto border-b-2 grid grid-cols-3 border-orange relative lg:px-4'>
+      {isMenuOpen && (
+        <div className='absolute z-[12]  top-5 left-5 lg:hidden'>
+          <button onClick={handleMenuClosing}>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              fill='#F43B00'
+              viewBox='0 0 24 24'
+              className='w-8 h-8 '
+            >
+              <path
+                fillRule='evenodd'
+                d='M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z'
+                clipRule='evenodd'
+              />
+            </svg>
+          </button>
+        </div>
+      )}
+      <section className='self-center lg:hidden pl-3 '>
+        <button onClick={handleMenuOpening}>
           <svg
             xmlns='http://www.w3.org/2000/svg'
-            fill='#F43B00'
             viewBox='0 0 24 24'
-            className='w-8 h-8 '
+            fill='#f43b00'
+            className='w-7 h-7'
           >
             <path
               fillRule='evenodd'
-              d='M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z'
+              d='M3 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 5.25zm0 4.5A.75.75 0 013.75 9h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 9.75zm0 4.5a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75zm0 4.5a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z'
               clipRule='evenodd'
             />
           </svg>
         </button>
-      </div>
-      <section className="self-center lg:hidden ">
-        <button>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-  <path fillRule="evenodd" d="M3 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 5.25zm0 4.5A.75.75 0 013.75 9h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 9.75zm0 4.5a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75zm0 4.5a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z" clipRule="evenodd" />
-</svg>
-
-        </button>
       </section>
-      <section className=' hidden lg:block lg:self-center fixed lg:static h-[100vh] lg:h-auto lg:bg-[transparent] bg-translucent w-[100%] z-[11]'>
-        <div className='flex  lg:flex-row flex-col w-[50%] lg:w-auto bg-white h-[100%] justify-center lg:justify-start  lg:pl-0'>
+      <section
+        className={` ${
+          isMenuOpen ? "block" : "hidden"
+        } lg:block lg:self-center fixed lg:static h-[100vh] lg:h-auto lg:bg-[transparent] bg-translucent w-[100%] z-[11]`}
+      >
+        <div className='flex  lg:flex-row flex-col w-[50%] lg:w-auto  bg-white h-[100%] justify-center lg:justify-start  lg:pl-0'>
           <Link
-            className='lg:px-7 mx-auto pb-5 lg:pb-0 lg:text-[18px] text-[25px] font-[500]   text-orange after:w-[100%] lg:hover:after:block after:h-1 after:bg-orange  relative'
+            className='lg:pr-7 mx-auto pb-5 lg:pb-0 lg:text-[18px] text-[25px] font-[500]   text-orange after:w-[100%] lg:hover:after:block after:h-1 after:bg-orange  relative'
             to='/'
           >
             Home
@@ -91,10 +108,14 @@ export const Navbar: React.FC<{}> = () => {
             <svg
               xmlns='http://www.w3.org/2000/svg'
               viewBox='0 0 24 24'
-              fill='#F43B00'
-              className='w-7 h-7'
+              fill={orangeColor}
+              className='w-6 h-6'
             >
-              <path d='M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z' />
+              <path
+                fillRule='evenodd'
+                d='M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 004.25 22.5h15.5a1.875 1.875 0 001.865-2.071l-1.263-12a1.875 1.875 0 00-1.865-1.679H16.5V6a4.5 4.5 0 10-9 0zM12 3a3 3 0 00-3 3v.75h6V6a3 3 0 00-3-3zm-3 8.25a3 3 0 106 0v-.75a.75.75 0 011.5 0v.75a4.5 4.5 0 11-9 0v-.75a.75.75 0 011.5 0v.75z'
+                clipRule='evenodd'
+              />
             </svg>
 
             <span className='self-center'> ({0})</span>
@@ -104,11 +125,11 @@ export const Navbar: React.FC<{}> = () => {
             onMouseOver={handleProfileMouseOver}
             onMouseOut={handleProfileMouseOut}
           >
-            <button className='ml-6'>
+            <button className='ml-1 lg:ml-3'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 viewBox='0 0 24 24'
-                fill='#F43B00'
+                fill={orangeColor}
                 className='w-7 h-7'
               >
                 <path
