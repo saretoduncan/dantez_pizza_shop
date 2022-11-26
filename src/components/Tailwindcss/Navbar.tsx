@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 export const Navbar: React.FC<{}> = () => {
+  const [isProfileHovering, setProfileHovering] = useState<boolean>(false);
+  const handleProfileMouseOver = () => setProfileHovering(() => true);
+  const handleProfileMouseOut = () => setProfileHovering(() => false);
   return (
     <div className=' w-[100%] h-[10vh] mx-auto border-b-2 grid  grid-cols-3 border-orange'>
       <section className=' self-center'>
@@ -57,7 +60,7 @@ export const Navbar: React.FC<{}> = () => {
           </svg>
         </div>
       </section>
-      <section className='self-center'>
+      <section className='self-center' >
         <div className='flex justify-end pr-4'>
           <button className='w-10 flex'>
             <svg
@@ -71,7 +74,7 @@ export const Navbar: React.FC<{}> = () => {
 
             <span> ({0})</span>
           </button>
-          <div className='relative inline-block '>
+          <div className='relative inline-block  ' onMouseOver={handleProfileMouseOver} onMouseOut={handleProfileMouseOut}>
             <button className='ml-6'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
@@ -86,9 +89,13 @@ export const Navbar: React.FC<{}> = () => {
                 />
               </svg>
             </button>
-            <div className='absolute right-0 flex flex-col  border-[1px] border-orange rounded bg-white p-2 shadow-[0_5px_6px_#F43B00]'>
-              <Link to='' className='flex  text-orange hover:text-[18px] font-semibold'>
-               <span>Profile</span>  <i
+            {isProfileHovering &&(<div className='absolute right-0 flex flex-col  border-[1px] border-orange rounded bg-white p-2 shadow-[0_5px_6px_#F43B00]'>
+              <Link
+                to=''
+                className='flex  text-orange hover:text-[18px] font-semibold'
+              >
+                <span>Profile</span>{" "}
+                <i
                   className='fa fa-user self-center pl-3 text-orange'
                   aria-hidden='true'
                 ></i>
@@ -100,7 +107,7 @@ export const Navbar: React.FC<{}> = () => {
                   aria-hidden='true'
                 ></i>
               </Link>
-            </div>
+            </div>)}
           </div>
         </div>
       </section>
