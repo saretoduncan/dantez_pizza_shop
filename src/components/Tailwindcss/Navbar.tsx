@@ -51,26 +51,26 @@ export const Navbar: React.FC<{}> = () => {
       >
         <div className='flex  lg:flex-row flex-col w-[50%] lg:w-auto  bg-white h-[100%] justify-center lg:justify-start  lg:pl-0'>
           <Link
-            className='lg:pr-7 mx-auto pb-5 lg:pb-0 lg:text-[18px] text-[25px] font-[500]   text-orange after:w-[100%] lg:hover:after:block after:h-1 after:bg-orange  relative'
+            className='lg:pr-7 mx-auto lg:mx-0 pb-5 lg:pb-0 lg:text-[18px] text-[25px] font-[500]   text-orange after:w-[100%] lg:hover:after:block after:h-1 after:bg-orange  relative'
             to='/'
           >
             Home
           </Link>
           <Link
-            className='lg:pr-7 mx-auto lg:text-[18px] text-[25px] pb-5 lg:pb-0 font-[500] text-orange after:w-[100%] lg:hover:after:block after:h-1 after:bg-orange'
+            className='lg:pr-7 mx-auto lg:mx-0 lg:text-[18px] text-[25px] pb-5 lg:pb-0 font-[500] text-orange after:w-[100%] lg:hover:after:block after:h-1 after:bg-orange'
             to=''
           >
             About
           </Link>
           <Link
-            className='lg:pr-7 lg:text-[18px] mx-auto text-[25px] pb-5 lg:pb-0 font-[500] text-orange after:w-[100%] lg:hover:after:block after:h-1 after:bg-orange'
+            className='lg:pr-7 lg:mx-0 lg:text-[18px] mx-auto text-[25px] pb-5 lg:pb-0 font-[500] text-orange after:w-[100%] lg:hover:after:block after:h-1 after:bg-orange'
             to=''
           >
             Menu
           </Link>
           <Link
             to=''
-            className='lg:text-[18px] text-[25px] mx-auto font-[500]  lg:py-0 text-orange after:w-[100%] lg:hover:after:block after:h-1 after:bg-orange'
+            className='lg:text-[18px] lg:mx-0 text-[25px] mx-auto font-[500]  lg:py-0 text-orange after:w-[100%] lg:hover:after:block after:h-1 after:bg-orange'
           >
             Contact
           </Link>
