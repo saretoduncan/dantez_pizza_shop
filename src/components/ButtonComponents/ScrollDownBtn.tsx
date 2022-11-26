@@ -2,7 +2,7 @@ import React from "react";
 
 export const ScrollDownBtn: React.FC<{}> = () => {
   return (
-  <div className="absolute md:grid hidden justify-center w-full bottom-2 ">
+  <div className="absolute md:grid hidden justify-center w-full bottom-2 animate-bounce  ">
         <button className=' relative '>
           <span className='absolute  flex flex-col top-14 left-7 text-white italic  '>
             Scroll Down{" "}
